@@ -16,7 +16,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	};
 
-	// Authorization : Role -> Access
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().httpBasic().and().authorizeRequests().antMatchers("/get", "/home", "/about").permitAll()
@@ -29,5 +28,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 		BCryptPasswordEncoder passwordEncoder = passwordEncoder();
 		auth.inMemoryAuthentication().withUser("user").password(passwordEncoder.encode("user")).roles("USER").and().withUser("admin")
 				.password(passwordEncoder.encode("admin")).roles("USER", "ADMIN");
+		
+//		Deprecated
+//		auth
+//		.inMemoryAuthentication()
+//			.withUser(User.withDefaultPasswordEncoder().username("user").password("password").roles("USER"));
 	}
 }

@@ -34,36 +34,6 @@ table td {
 		<input type="submit" value="Log out" /> <input type="hidden"
 			name="${_csrf.parameterName}" value="${_csrf.token}" />
 	</form>
-	<form:form action="add" method="post" modelAttribute="employee">
-		<table>
-			<tr>
-				<td>Name</td>
-				<td><form:input path="name" /> <br /> <form:errors
-						path="name" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td>Age</td>
-				<td><form:input path="age" /> <br /> <form:errors path="age"
-						cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><button type="submit">Submit</button></td>
-			</tr>
-		</table>
-	</form:form>
-
-	<h2>Users List</h2>
-	<table>
-		<tr>
-			<td><strong>Name</strong></td>
-			<td><strong>Age</strong></td>
-		</tr>
-		<c:forEach items="${employees}" var="emp">
-			<tr>
-				<td>${emp.name}</td>
-				<td>${emp.age}</td>
-			</tr>
-		</c:forEach>
-	</table>
+	
 </body>
 </html>
