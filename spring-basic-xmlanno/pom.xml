@@ -8,8 +8,8 @@
 		<artifactId>spring</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>spring-basic</artifactId>
-	<name>spring-basic</name>
+	<artifactId>spring-basic-xmlanno</artifactId>
+	<name>spring-basic-xmlanno</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -21,7 +21,6 @@
 			<artifactId>spring-context</artifactId>
 			<version>5.0.4.RELEASE</version>
 		</dependency>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

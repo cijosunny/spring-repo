@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
-    <bean name="sam" class="org.spring.refer.basic.Employee" >
+    <context:property-placeholder location="application.properties"/>
+    
+    <bean name="sam" class="org.spring.refer.basic.model.Employee" >
     	<property name="firstname" value="Sam"></property>
     	<property name="lastname" value="John"></property>
     </bean>
+    
+    <bean name="employeeRepository" class="org.spring.refer.basic.repository.EmployeeRepositoryImpl">
+    	<property name="dbUserName" value="${dbUserName}"></property>
+    </bean>
+    <!-- Setter Injection -->
+    <bean name="employeeService" class="org.spring.refer.basic.service.EmployeeServiceImpl">
+    	<property name="employeeRepository" ref="employeeRepository"/>
+    </bean>
+    <!-- Constructor Injection -->
+    <bean name="employeeService2" class="org.spring.refer.basic.service.EmployeeServiceImpl">
+    	<constructor-arg index="0" ref="employeeRepository"/>
+    </bean>
+    
+    <!-- Autowire By Constructor -->
+    <bean name="employeeService3" class="org.spring.refer.basic.service.EmployeeServiceImpl" autowire="constructor">
+    </bean>
+    
+    
+    <!-- Autowire ByType -->
+    <bean name="employeeService4" class="org.spring.refer.basic.service.EmployeeServiceImpl" autowire="byType">
+    </bean>
+    
+    <!-- Autowire ByName -->
+    <bean name="employeeService5" class="org.spring.refer.basic.service.EmployeeServiceImpl" autowire="byName">
+    </bean>
+    
 </beans>

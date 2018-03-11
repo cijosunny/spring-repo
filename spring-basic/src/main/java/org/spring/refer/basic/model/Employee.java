@@ -1,4 +1,4 @@
-package org.spring.refer.basic;
+package org.spring.refer.basic.model;
 
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
